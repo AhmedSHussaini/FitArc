@@ -171,3 +171,50 @@
 .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
 }
+
+/* Profile image */
+.image{
+    display:flex;
+    width:200px;
+    height: 200px;
+    background-color: green;
+    border-radius: 50%;
+    grid-column: 1 / span 1;
+}
+
+.calendar-container{
+    grid-row: 2;
+    width: 90%;
+
+}
+
+.text-center{
+    grid-row: 1 / span 2;
+}
+
+.text{
+    margin-left: 300px;
+}
+
+.profile{
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+}
+
+.profile > div{
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+
+
+table{
+    border:1px solid black;
+    border-radius: 25px;
+    border-spacing: 15px;
+}
+th{
+    border-bottom: medium solid black;
+}

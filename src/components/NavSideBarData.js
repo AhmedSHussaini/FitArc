@@ -13,13 +13,13 @@ export const NavSideBarData = [
   },
   {
     title: "Nutrition",
-    path: "/nutrition",
+    path: "/recordList",
     icon: <GiIcons.GiForkKnifeSpoon />,
     cName: "nav-text"
   },
   {
     title: "Fitness",
-    path: "/fitness",
+    path: "/create",
     icon: <IoIcons.IoIosFitness />,
     cName: "nav-text"
   }
