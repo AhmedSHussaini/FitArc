@@ -13,7 +13,8 @@ module.exports = {
       // Verify we got a good "db" object
       if (db)
       {
-        _db = db.db("cluster0");
+        // _db = db.db("cluster0");
+        _db = db.db("FitArc");
         console.log("Successfully connected to MongoDB."); 
       }
       return callback(err);
