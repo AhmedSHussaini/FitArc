@@ -7,19 +7,19 @@ import * as GiIcons from "react-icons/gi";
 export const NavSideBarData = [
   {
     title: "Profile",
-    path: "/",
+    path: "/profile",
     icon: <AiIcons.AiOutlineUser />,
     cName: "nav-text"
   },
   {
     title: "Nutrition",
-    path: "/recordList",
+    path: "/nutrition",
     icon: <GiIcons.GiForkKnifeSpoon />,
     cName: "nav-text"
   },
   {
     title: "Fitness",
-    path: "/create",
+    path: "/fitness",
     icon: <IoIcons.IoIosFitness />,
     cName: "nav-text"
   }
