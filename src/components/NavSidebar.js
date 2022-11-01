@@ -26,7 +26,7 @@ export default function Navbar() {
           <h1 class ='title'>FITARC</h1>
           <div className="rightHandContainerOptions">
             <p className="accountSettingsButton">Account Settings</p>
-            <p className="LogOutButton"><Link to='home'>Log Out</Link></p>
+            <p className="LogOutButton"><Link to='/'>Log Out</Link></p>
           </div>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>

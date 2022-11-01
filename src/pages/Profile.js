@@ -9,6 +9,11 @@ const Name = (props) => (
   <p className='text'> Hello {props.record.name}</p>
 );
 
+//const for fetching and displaying food
+const MealLog = (props) => (
+  <td>{props.record.food}</td>
+);
+
 
 export default function Profile() {
   const [date, setDate] = useState(new Date());

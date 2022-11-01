@@ -12,7 +12,7 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
  
  
-// This section will help you get a list of all the records.
+// This section will help you get a list of all the records from user collection
 recordRoutes.route("/record").get(function (req, res) {
  let db_connect = dbo.getDb("FitArc");
  db_connect
@@ -23,8 +23,20 @@ recordRoutes.route("/record").get(function (req, res) {
      res.json(result);
    });
 });
+
+// This section will help you get a list of all the records from mealLog collection
+recordRoutes.route("/recordMealPlan").get(function (req, res) {
+  let db_connect = dbo.getDb("FitArc");
+  db_connect
+    .collection("mealPlan")
+    .find({})
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+ });
  
-// This section will help you get a single record by id
+// This section will help you get a single record by id from user colection
 recordRoutes.route("/record/:id").get(function (req, res) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
@@ -36,13 +48,14 @@ recordRoutes.route("/record/:id").get(function (req, res) {
    });
 });
  
-// This section will help you create a new record.
+// This section will help you create a new record for user collection
 recordRoutes.route("/record/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
-   name: req.body.name,
    email: req.body.email,
-   level: req.body.level,
+   name: req.body.name,
+   age: req.body.level,
+   password: req.body.email,
  };
  db_connect.collection("user").insertOne(myobj, function (err, res) {
    if (err) throw err;
@@ -50,15 +63,16 @@ recordRoutes.route("/record/add").post(function (req, response) {
  });
 });
  
-// This section will help you update a record by id.
+// This section will help you update a record by id to user collection
 recordRoutes.route("/update/:id").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  let newvalues = {
    $set: {
-     name: req.body.name,
-     email: req.body.email,
-     level: req.body.level,
+    email: req.body.email,
+    name: req.body.name,
+    age: req.body.level,
+    password: req.body.email,
    },
  };
  db_connect
@@ -70,7 +84,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
    });
 });
  
-// This section will help you delete a record
+// This section will help you delete a record from user collection
 recordRoutes.route("/:id").delete((req, response) => {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };

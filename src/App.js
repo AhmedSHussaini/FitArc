@@ -4,7 +4,9 @@ import NavSideBar from './components/NavSidebar'
 import HomeNavBar from './components/HomeNavBar'
 import HomePage from './pages/HomePage';
 import LogInPage from './pages/LogInPage';
+
 import SignupPage from './pages/SignupPage';
+
 import {Routes,Route,HashRouter  as Router, useRoutes, useLocation} from 'react-router-dom'
 import Profile from './pages/Profile'
 import Nutrition from './pages/Nutrition'
@@ -47,6 +49,7 @@ function Wrapper(){
     <Route  path="/" element={<HomePage />} />
     <Route path="/login" element={<LogInPage />} />
     <Route path="/signup" element={<SignupPage />} />
+    {/* <Route path="/create" element={<Create />} /> */}
   </Routes>
   </>)
 

@@ -6,8 +6,7 @@
   box-sizing: border-box;
 }
 
-.profile,
-.nutrition,
+/* .profile, */
 .fitness {
   display: flex;
   height: 90vh;
