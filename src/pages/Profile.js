@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css'
 import './Profile.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 //const for fetching and displaying name
 const Name = (props) => (
@@ -18,11 +18,14 @@ const MealLog = (props) => (
 export default function Profile() {
   const [date, setDate] = useState(new Date());
   const [records, setRecords] = useState([]);
+  const params = useParams();
   // test
   //This method fetches the records from the database
+
   useEffect(() => {
     async function getRecords(){
-      const response = await fetch('http://localhost:5000/record/');
+      // const id = params.id.toString();
+      const response = await fetch('http://localhost:5000/record');
 
       if (!response.ok){
         const message = `An error occured: ${response.statusText}`;
@@ -31,13 +34,14 @@ export default function Profile() {
       }
 
       const records = await response.json();
-      setRecords(records);
+      const filtered = records.filter(record => {return record.name=== 'demo user'});
+      setRecords(filtered);
     }
 
     getRecords();
 
     return;
-  }, [records.length]);
+  }, []);
 
   //This method will delete a record
   async function deleteRecord(id){
@@ -50,6 +54,7 @@ export default function Profile() {
   }
 
   //this method will display the name
+
   function displayName(){
     return records.map((record) => {
       return (
